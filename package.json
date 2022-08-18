@@ -60,5 +60,9 @@
             "npx prettier --write",
             "npx eslint --fix"
         ]
+    },
+    "dependencies": {
+        "axios": "^0.27.2",
+        "winston": "^3.8.1"
     }
 }
