@@ -14,9 +14,8 @@ provider:
 
 plugins:
     - serverless-offline
-    - serverless-plugin-typescript
-    - serverless-plugin-common-excludes
-    - serverless-plugin-include-dependencies
+    - serverless-webpack
+    - serverless-prune-plugin
 
 functions:
     - ${file(./resources/functions.yml)}
@@ -28,3 +27,10 @@ custom:
         prod: info
         staging: info
     logLevel: ${self:custom.logLevelMap.${sls:stage}, 'debug'}
+    prune:
+        automatic: true
+        number: 2
+
+package:
+    individually: true
+    excludeDevDependencies: false

@@ -42,10 +42,11 @@
         "prettier": "^2.7.1",
         "serverless": "^3.22.0",
         "serverless-offline": "^9.2.4",
-        "serverless-plugin-common-excludes": "^4.0.0",
-        "serverless-plugin-include-dependencies": "^5.0.0",
-        "serverless-plugin-typescript": "^2.1.2",
-        "typescript": "^4.7.4"
+        "serverless-prune-plugin": "^2.0.1",
+        "serverless-webpack": "^5.8.0",
+        "ts-loader": "^9.3.1",
+        "typescript": "^4.7.4",
+        "webpack": "^5.74.0"
     },
     "commitlint": {
         "extends": [
@@ -64,5 +65,8 @@
     "dependencies": {
         "axios": "^0.27.2",
         "winston": "^3.8.1"
+    },
+    "volta": {
+        "node": "14.19.0"
     }
 }
