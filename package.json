@@ -26,6 +26,8 @@
         "@types/node": "^18.7.6",
         "@typescript-eslint/eslint-plugin": "^5.33.1",
         "@typescript-eslint/parser": "^5.33.1",
+        "commitlint-config-jira": "^1.6.4",
+        "commitlint-plugin-jira-rules": "^1.6.4",
         "eslint": "^8.22.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-jest": "^26.8.3",
@@ -47,51 +49,11 @@
     },
     "commitlint": {
         "extends": [
-            "@commitlint/config-conventional"
+            "jira"
         ],
-        "rules": {
-            "type-case": [
-                2,
-                "always",
-                "lower-case"
-            ],
-            "type-enum": [
-                2,
-                "always",
-                [
-                    "build",
-                    "chore",
-                    "feat",
-                    "fix",
-                    "refactor",
-                    "revert",
-                    "test",
-                    "deps"
-                ]
-            ],
-            "scope-empty": [
-                2,
-                "always"
-            ],
-            "type-empty": [
-                2,
-                "never"
-            ],
-            "subject-empty": [
-                2,
-                "never"
-            ],
-            "subject-min-length": [
-                2,
-                "always",
-                10
-            ],
-            "subject-full-stop": [
-                2,
-                "never",
-                "."
-            ]
-        }
+        "plugins": [
+            "commitlint-plugin-jira-rules"
+        ]
     },
     "lint-staged": {
         "**/*.{js,jsx,ts,tsx}": [
