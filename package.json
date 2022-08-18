@@ -90,11 +90,6 @@
                 2,
                 "never",
                 "."
-            ],
-            "subject-case": [
-                2,
-                "always",
-                "lower-case"
             ]
         }
     },
