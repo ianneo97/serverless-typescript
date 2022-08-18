@@ -1,0 +1,19 @@
+{
+  "name": "serverless-typescript",
+  "version": "1.0.0",
+  "description": "Setup Serverless Project with Typescript capabilities",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianneo97/serverless-typescript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ianneo97/serverless-typescript/issues"
+  },
+  "homepage": "https://github.com/ianneo97/serverless-typescript#readme"
+}
