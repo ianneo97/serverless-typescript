@@ -1,25 +1,23 @@
 service: serverless-typescript
 
-frameworkVersion: "3"
+frameworkVersion: '3'
 
 provider:
-  name: aws
-  runtime: nodejs14.x
-  architecture: arm64
-  region: ap-southeast-1
-  stage: dev
+    name: aws
+    runtime: nodejs14.x
+    architecture: arm64
+    region: ap-southeast-1
+    stage: dev
 
-# functions:
-#   - ${file(./resources/functions.yml)}
-
-# resources:
-#   - ${file(./resources/cognito.yml)}
-#   - ${file(./resources/exports.yml)}
-
-package:
-  exclude:
-    - "node_modules"
+plugins:
+    - serverless-offline
+    - serverless-plugin-typescript
+    - serverless-plugin-common-excludes
+    - serverless-plugin-include-dependencies
 
 functions:
-  hello:
-    handler: handler.hello
+    - ${file(./resources/functions.yml)}
+
+custom:
+    includeDependencies:
+        enableCaching: true
