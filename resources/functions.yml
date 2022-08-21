@@ -1,9 +1,9 @@
 sample:
-    handler: functions/sample/sample.lambdaHandler
+    handler: functions/sample/sample.handler
     description: Lambda function just for article purposes - to show sls offline
     memorySize: 256
     events:
         - http:
               path: /ping
-              method: get
+              method: post
               cors: true

@@ -11,6 +11,7 @@ provider:
     logRetentionInDays: 30
     environment:
         LOG_LEVEL: ${self:custom.logLevel}
+        AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
 
 plugins:
     - serverless-offline

@@ -1,12 +1,11 @@
-import { Context } from 'aws-lambda';
-import { LambdaResponse } from './../types/types';
+import { APIGatewayProxyResult, Context } from 'aws-lambda';
 import { logger } from './logger';
 
 export function okResponse(
     context: Context,
     message: string,
     response: unknown
-): LambdaResponse {
+): APIGatewayProxyResult {
     logger.defaultMeta = { requestId: context.awsRequestId };
 
     logger.info(message, response);
@@ -25,7 +24,7 @@ export function errResponse(
     message: string,
     errorCode: number,
     error: Error
-): LambdaResponse {
+): APIGatewayProxyResult {
     logger.defaultMeta = { requestId: context.awsRequestId };
 
     logger.error(message, error);

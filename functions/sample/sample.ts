@@ -1,13 +1,20 @@
-import { APIGatewayEvent, Context } from 'aws-lambda';
+import { APIGatewayEvent, APIGatewayProxyResult, Context } from 'aws-lambda';
 import { logger } from '../lib/logger';
 import { okResponse } from '../lib/response';
-import { LambdaResponse } from '../types/types';
+import middy from '@middy/core';
+import httpJsonBodyParser from '@middy/http-json-body-parser';
 
-export const lambdaHandler = async (
+const lambdaHandler = async (
     event: APIGatewayEvent,
     context: Context
-): Promise<LambdaResponse> => {
+): Promise<APIGatewayProxyResult> => {
     logger.defaultMeta = { requestId: context.awsRequestId };
 
-    return okResponse(context, 'Test function', { test: 123 });
+    // const body: Schema = event.body;
+    const body = event.body;
+    console.log(body);
+
+    return okResponse(context, 'Test function', body);
 };
+
+export const handler = middy(lambdaHandler).use(httpJsonBodyParser());
