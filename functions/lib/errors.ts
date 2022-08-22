@@ -16,6 +16,14 @@ export class AppError extends CustomError {
     }
 }
 
+export class InvalidPayloadError extends CustomError {
+    constructor(message = '', statusCode = 400) {
+        super(message, statusCode);
+
+        this.name = 'InvalidPayloadError';
+    }
+}
+
 export class NotFoundError extends CustomError {
     constructor(message = '', statusCode = 404) {
         super(message, statusCode);
@@ -31,4 +39,5 @@ type ErrorList = {
 export const ERROR_LIST: ErrorList = {
     AppError: new AppError(),
     NotFoundError: new NotFoundError(),
+    InvalidPayloadError: new InvalidPayloadError(),
 };
