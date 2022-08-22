@@ -1,14 +1,17 @@
-import { Context } from 'aws-lambda';
 import middy from '@middy/core';
 import httpErrorHandler from '@middy/http-error-handler';
-import { ReqSchema, RespSchema } from './schema';
-import middleware from '../lib/middleware';
+import { Context } from 'aws-lambda';
 import { ValidatedEvent } from '../lib/api-gateway';
+import { logger } from '../lib/logger';
+import middleware from '../lib/middleware';
+import { ReqSchema, RespSchema } from './schema';
 
 const lambdaHandler = async (
     event: ValidatedEvent<ReqSchema>,
-    _: Context
+    context: Context
 ): Promise<RespSchema> => {
+    logger.defaultMeta = { requestId: context.awsRequestId };
+
     const body = event.body;
 
     return body;
