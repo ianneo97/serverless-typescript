@@ -1,30 +1,25 @@
 class CustomError extends Error {
     statusCode: number;
-    constructor(message = '') {
+
+    constructor(message = '', statusCode = 500) {
         super(message);
         this.name = 'CustomError';
-        this.statusCode = 500;
+        this.statusCode = statusCode;
     }
 }
 
 export class AppError extends CustomError {
-    statusCode: number;
-
     constructor(message = '', statusCode = 400) {
-        super(message);
+        super(message, statusCode);
 
-        this.statusCode = statusCode;
         this.name = 'AppError';
     }
 }
 
 export class NotFoundError extends CustomError {
-    statusCode: number;
-
     constructor(message = '', statusCode = 404) {
-        super(message);
+        super(message, statusCode);
 
-        this.statusCode = statusCode;
         this.name = 'NotFoundError';
     }
 }
