@@ -12,9 +12,9 @@ const middleware = (): middy.MiddlewareObj<
         APIGatewayProxyResult
     > = async (request): Promise<void> => {
         logger.defaultMeta = { requestId: request.context.awsRequestId };
-        request.event.body = JSON.parse(request.event.body || '{}');
-
         logger.info('API Request Information', request.event);
+
+        request.event.body = JSON.parse(request.event.body || '{}');
     };
 
     const after: middy.MiddlewareFn<

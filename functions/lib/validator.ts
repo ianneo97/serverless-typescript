@@ -7,7 +7,7 @@ export const ajv = new Ajv();
 function $validateWithOptions<T extends JSONSchema>(
     schema: T,
     data: unknown,
-    shouldThrowError: boolean
+    shouldThrowError = true
 ): boolean {
     const isValid = ajv.validate<T>(schema, data);
 
